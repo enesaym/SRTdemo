@@ -1,0 +1,68 @@
+{
+  "project_info": {
+    "project_number": "909939204633",
+    "project_id": "srtapp-9a73a",
+    "storage_bucket": "srtapp-9a73a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:909939204633:android:3eea8bec26b25212660088",
+        "android_client_info": {
+          "package_name": "com.enesay.srtbeta"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "909939204633-9igtvrnmvn7eetoatjme20hn589pa1me.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDnaDqWbXje4PfoZusp9zsm-h9bSx62_NE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "909939204633-9igtvrnmvn7eetoatjme20hn589pa1me.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:909939204633:android:84247e2384c1dd89660088",
+        "android_client_info": {
+          "package_name": "com.enesay.srtdemo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "909939204633-9igtvrnmvn7eetoatjme20hn589pa1me.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDnaDqWbXje4PfoZusp9zsm-h9bSx62_NE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "909939204633-9igtvrnmvn7eetoatjme20hn589pa1me.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
