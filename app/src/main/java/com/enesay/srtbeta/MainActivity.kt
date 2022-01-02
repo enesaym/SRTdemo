@@ -24,7 +24,7 @@ class MainActivity : AppCompatActivity() {
 
         val currentUser=auth.currentUser
         if(currentUser!=null){
-            val intent=Intent(this,FeedActivity::class.java)
+            val intent=Intent(this,AnaGovde::class.java)
             startActivity(intent)
             finish()
 
@@ -41,7 +41,7 @@ class MainActivity : AppCompatActivity() {
             Toast.makeText(this,"Kullanıcı adı veya sifre alanı bos gecilemez !", Toast.LENGTH_LONG).show()
         }else{
             auth.signInWithEmailAndPassword(email,password).addOnSuccessListener{
-                val intent= Intent(this,FeedActivity::class.java)
+                val intent= Intent(this,AnaGovde::class.java)
                 startActivity(intent)
                 finish()
             }.addOnFailureListener{
