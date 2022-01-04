@@ -6,14 +6,16 @@
     android:layout_height="match_parent"
     android:background="#EEEEEE"
     tools:context=".AnaGovde">
-    <TextView
-        android:id="@+id/text_govde"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:text="Welcome!"
-        android:textColor="@color/black"
-        android:textSize="20sp"/>
+
+    <FrameLayout
+        android:id="@+id/flFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toTopOf="@+id/bottom_nav_bar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <com.ismaeldivita.chipnavigation.ChipNavigationBar
         android:id="@+id/bottom_nav_bar"
@@ -23,6 +25,8 @@
         android:layout_gravity="bottom"
         android:background="@color/white"
         android:fadingEdge="horizontal"
-        app:cnb_menuResource="@menu/bottom_menu" />
+        app:cnb_menuResource="@menu/bottom_menu"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="527dp" />
 
 </RelativeLayout>

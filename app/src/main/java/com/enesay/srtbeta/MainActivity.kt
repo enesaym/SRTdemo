@@ -23,7 +23,7 @@ class MainActivity : AppCompatActivity() {
         auth= Firebase.auth //initialize etme
 
         val currentUser=auth.currentUser
-        if(currentUser!=null){
+        if(currentUser!=null){       //oturum hatırlama
             val intent=Intent(this,AnaGovde::class.java)
             startActivity(intent)
             finish()
@@ -31,6 +31,7 @@ class MainActivity : AppCompatActivity() {
         }
 
     }
+    //Giris yapma
     fun signInClicked(view: View){
 
 
@@ -50,10 +51,9 @@ class MainActivity : AppCompatActivity() {
         }
 
     }
+    //kullanıcı kayıt
     fun signUpClicked(view: View){
-        /////////////////////////
 
-        ///////////////////////////////////
         val email=binding.emailText.text.toString()
         val password= binding.passwordText.text.toString()
 
