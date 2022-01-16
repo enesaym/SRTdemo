@@ -1,5 +1,6 @@
 package com.enesay.srtbeta
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,6 +8,7 @@ import androidx.appcompat.app.AppCompatDelegate
 import androidx.fragment.app.Fragment
 import com.enesay.srtbeta.databinding.ActivityAnaGovdeBinding
 import com.enesay.srtbeta.databinding.ActivityMainBinding
+import kotlinx.android.synthetic.main.fragment_profil.*
 
 class AnaGovde : AppCompatActivity() {
         private lateinit var binding: ActivityAnaGovdeBinding
@@ -19,16 +21,21 @@ class AnaGovde : AppCompatActivity() {
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO) //dark mode engelleme
         setUpTabBar()
 
+
     }
 
     fun setUpTabBar(){   //bottom nav bar kontrolleri
         binding.bottomNavBar.setOnItemSelectedListener {
-            val firstFragment=BlogFragment()
-            val secondFragment=ChatFragment()
+            val firstFragment=ChatFragment()
+            val secondFragment=BlogFragment()
+            val thirdFragment=RandevuFragment()
+            val fifthFragment=FragmentProfil()
             setCurrentFragment(firstFragment)
             when (it) {
                 R.id.message -> setCurrentFragment(firstFragment)
                 R.id.home -> setCurrentFragment(secondFragment)
+                R.id.user->setCurrentFragment(fifthFragment)
+                R.id.calender->setCurrentFragment(thirdFragment)
                 /*R.id.user-> {
                     binding.textGovde.text = "Profile"
                     binding.bottomNavBar.showBadge(R.id.calender)

@@ -3,7 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ChatFragment">
+    tools:context=".RandevuFragment">
+
 
     <TextView
         android:id="@+id/textView2"
@@ -11,5 +12,6 @@
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:layout_centerHorizontal="true"
-        android:text="CHAT EKRANI" />
+        android:text="RANDEVU EKRANI" />
+
 </RelativeLayout>
