@@ -10,16 +10,16 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SRTbeta">
         <activity
-            android:name=".AnaGovde"
+            android:name=".view.AnaGovde"
             android:exported="true" />
         <activity
-            android:name=".UploadActivity"
+            android:name=".view.UploadActivity"
             android:exported="true" />
         <activity
-            android:name=".FeedActivity"
+            android:name=".view.FeedActivity"
             android:exported="true" />
         <activity
-            android:name=".MainActivity"
+            android:name=".view.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

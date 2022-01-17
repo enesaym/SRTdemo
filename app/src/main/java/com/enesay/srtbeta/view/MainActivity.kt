@@ -1,4 +1,4 @@
-package com.enesay.srtbeta
+package com.enesay.srtbeta.view
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -24,7 +24,7 @@ class MainActivity : AppCompatActivity() {
 
         val currentUser=auth.currentUser
         if(currentUser!=null){       //oturum hatırlama
-            val intent=Intent(this,AnaGovde::class.java)
+            val intent=Intent(this, AnaGovde::class.java)
             startActivity(intent)
             finish()
 
@@ -42,7 +42,7 @@ class MainActivity : AppCompatActivity() {
             Toast.makeText(this,"Kullanıcı adı veya sifre alanı bos gecilemez !", Toast.LENGTH_LONG).show()
         }else{
             auth.signInWithEmailAndPassword(email,password).addOnSuccessListener{
-                val intent= Intent(this,AnaGovde::class.java)
+                val intent= Intent(this, AnaGovde::class.java)
                 startActivity(intent)
                 finish()
             }.addOnFailureListener{
@@ -62,7 +62,7 @@ class MainActivity : AppCompatActivity() {
         }else{
             auth.createUserWithEmailAndPassword(email,password).addOnSuccessListener {
                 //basarılı olursa cagrılır
-                val intent= Intent(this@MainActivity,FeedActivity::class.java)  //diger sayfaya gecer
+                val intent= Intent(this@MainActivity, AnaGovde::class.java)  //diger sayfaya gecer
                 startActivity(intent)
                 finish() //ilk aktiviteyi sonlandırır.
 
