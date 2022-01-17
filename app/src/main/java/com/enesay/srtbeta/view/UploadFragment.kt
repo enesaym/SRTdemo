@@ -22,17 +22,25 @@ import com.enesay.srtbeta.R
 import com.enesay.srtbeta.databinding.ActivityUploadBinding
 import com.enesay.srtbeta.databinding.FragmentUploadBinding
 import com.google.android.material.snackbar.Snackbar
+import com.google.firebase.Timestamp
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
+import com.google.firebase.storage.FirebaseStorage
+import com.google.firebase.storage.ktx.storage
 import kotlinx.android.synthetic.main.fragment_upload.*
+import java.util.*
 
 
 class UploadFragment : Fragment() {
 
     var selectedPicture : Uri? = null   //secilen resmin konumunu tutar
-    var selectedBitmap : Bitmap? = null
+    //var selectedBitmap : Bitmap? = null
     private lateinit var db : FirebaseFirestore
     private lateinit var auth : FirebaseAuth
+    private lateinit var storage: FirebaseStorage
     private lateinit var activityResultLauncher: ActivityResultLauncher<Intent>
     private lateinit var permissionLauncher: ActivityResultLauncher<String>
     private lateinit var binding : FragmentUploadBinding
@@ -40,6 +48,12 @@ class UploadFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         registerLauncher()
+
+        auth= Firebase.auth
+        db=Firebase.firestore
+        storage=Firebase.storage
+
+
     }
 
     override fun onCreateView(
@@ -47,7 +61,7 @@ class UploadFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         // Inflate the layout for this fragment
-        binding=FragmentUploadBinding.inflate(inflater,container,false)
+        binding=FragmentUploadBinding.inflate(inflater,container,false)   //fragment view binding
         return binding.root
 
     }
@@ -56,6 +70,52 @@ class UploadFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.button5.setOnClickListener{
+            //UUID -> image name
+            val uuid = UUID.randomUUID()
+            val imageName = "$uuid.jpg"         //RANDOM FOTOĞRAF İSMİ
+            val reference=storage.reference
+            val imageReference=reference.child("images").child(imageName)   //random isimle kaydetmeye yarar.
+
+            if (selectedPicture!=null){
+                imageReference.putFile(selectedPicture!!).addOnSuccessListener {
+                    //download url firestore kaydetme
+                    val updatePictureReference=storage.reference.child("images").child(imageName) //yüklenen görselin urlsini almak.
+                    updatePictureReference.downloadUrl.addOnSuccessListener {
+                        val downloadUrl=it.toString()
+                        val postMap = hashMapOf<String,Any>()
+                        if (auth.currentUser!=null){
+                            postMap.put("downloadUrl",downloadUrl)
+                            postMap.put("userEmail",auth.currentUser!!.email.toString())
+                            postMap.put("headerComment",binding.editTextTextPersonName.text.toString())
+                            postMap.put("comment",binding.editTextTextMultiLine.text.toString())
+                            postMap.put("date", Timestamp.now())
+
+                            db.collection("Postlar").add(postMap).addOnSuccessListener {    //veri tabanına ekler
+
+                                Toast.makeText(this.requireContext(),"GÖNDERİ PAYLAŞILDI",Toast.LENGTH_SHORT).show()
+                                //blog ekranına intent yapar
+                                val fr = getParentFragmentManager().beginTransaction()  //get fragment yontemi kullanımdan kaldırıldı.
+                                fr.replace(com.enesay.srtbeta.R.id.flFragment, BlogFragment())
+                                fr.commit()
+
+                            }.addOnFailureListener{
+                                Toast.makeText(this.requireContext(),it.localizedMessage,Toast.LENGTH_LONG).show()
+                            }
+                        }
+
+
+                    }.addOnFailureListener{
+                        Toast.makeText(this.requireContext(),it.localizedMessage,Toast.LENGTH_LONG).show()
+                    }
+
+
+                }.addOnFailureListener{
+                    Toast.makeText(this.requireContext(),it.localizedMessage,Toast.LENGTH_LONG).show()
+                }
+            }
+
+
+
 
         }
 
