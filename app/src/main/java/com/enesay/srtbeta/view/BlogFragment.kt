@@ -38,8 +38,8 @@ class BlogFragment : Fragment() {
             fr.commit()
 
         }
-
     }
+
 
 
 }
