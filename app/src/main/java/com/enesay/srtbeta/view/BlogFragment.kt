@@ -22,6 +22,7 @@ import com.enesay.srtbeta.model.Post
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.Query
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.FirebaseStorage
@@ -44,20 +45,19 @@ class BlogFragment : Fragment() {
         postArrayList=ArrayList<Post>() //bos oldugunu gosterir
 
 
-
-
     }
 
     private fun getData(){
 
-        db.collection("Postlar").addSnapshotListener { value, error ->
-
+        db.collection("Postlar").orderBy("date",Query.Direction.DESCENDING).addSnapshotListener { value, error ->
+        //whereequelto() ile filtreleme yapabiliriz. sadece kendi paylastıklarımızı gorebiliriz.
             if (error!=null){
                 Toast.makeText(this.requireContext(),error.localizedMessage,Toast.LENGTH_LONG).show()
             }else{
                 if(value!=null){
                     if(!value.isEmpty){
                         val documents=value.documents
+                        postArrayList.clear()
                         for (document in documents){
 
                             //veri cekme

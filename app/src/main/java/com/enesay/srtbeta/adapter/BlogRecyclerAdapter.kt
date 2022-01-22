@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.enesay.srtbeta.databinding.FragmentBlogBinding
 import com.enesay.srtbeta.databinding.RecyclerRowBinding
 import com.enesay.srtbeta.model.Post
+import com.squareup.picasso.Picasso
 
 class BlogRecyclerAdapter(private val postlist:ArrayList<Post>) : RecyclerView.Adapter<BlogRecyclerAdapter.PostHolder>() {
 
@@ -23,6 +24,7 @@ class BlogRecyclerAdapter(private val postlist:ArrayList<Post>) : RecyclerView.A
         holder.binding.recyclerEmailText.text=postlist.get(position).email
         holder.binding.recyclerHead.text=postlist.get(position).headerComment
         holder.binding.recyclerComment.text=postlist.get(position).comment
+        Picasso.get().load(postlist.get(position).downloadUrl).into(holder.binding.recyclerImageView)
     }
 
     override fun getItemCount(): Int {
