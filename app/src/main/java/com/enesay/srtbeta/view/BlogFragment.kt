@@ -26,6 +26,9 @@ import com.google.firebase.firestore.Query
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.FirebaseStorage
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.runBlocking
 
 
 class BlogFragment : Fragment() {
@@ -52,7 +55,10 @@ class BlogFragment : Fragment() {
         db.collection("Postlar").orderBy("date",Query.Direction.DESCENDING).addSnapshotListener { value, error ->
         //whereequelto() ile filtreleme yapabiliriz. sadece kendi paylastıklarımızı gorebiliriz.
             if (error!=null){
-                Toast.makeText(this.requireContext(),error.localizedMessage,Toast.LENGTH_LONG).show()
+                if(context!=null){
+                    Toast.makeText(this.context,error.localizedMessage,Toast.LENGTH_SHORT).show() //cıkıs yapma sorunu
+                }
+
             }else{
                 if(value!=null){
                     if(!value.isEmpty){
@@ -95,7 +101,9 @@ class BlogFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
         getData()
+
         binding.recyclerView.layoutManager=LinearLayoutManager(this.requireContext())
         BlogAdapter=BlogRecyclerAdapter(postArrayList)
         binding.recyclerView.adapter=BlogAdapter

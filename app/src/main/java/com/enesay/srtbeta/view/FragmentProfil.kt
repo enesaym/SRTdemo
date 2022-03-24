@@ -6,11 +6,17 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import com.enesay.srtbeta.R
 import com.enesay.srtbeta.databinding.ActivityFeedBinding
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.fragment_profil.*
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.runBlocking
 
 
 class FragmentProfil : Fragment() {
@@ -32,8 +38,14 @@ class FragmentProfil : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) { //gorunumler olusturulduğunda yapılacaklar
         super.onViewCreated(view, savedInstanceState)
+        auth= FirebaseAuth.getInstance()
         button4.setOnClickListener{
-            FirebaseAuth.getInstance().signOut()   //cıkıs yapma
+            //runBlocking { launch {
+                //delay(1000)
+                //auth.signOut()//cıkıs yapma
+            //} }
+            auth.signOut()
+
             activity?.let{
 
                 val intent = Intent (it, MainActivity::class.java)  //giris ekranına yonlendirme
@@ -41,6 +53,7 @@ class FragmentProfil : Fragment() {
                 requireActivity().finish()
 
             }
+
         }
 
 
