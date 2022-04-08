@@ -1,5 +1,6 @@
 package com.enesay.srtbeta.view
 
+import android.app.AlertDialog
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -30,6 +31,9 @@ class MainActivity : AppCompatActivity() {
         }
 
     }
+
+
+
     //Giris yapma
     fun signInClicked(view: View){
 

@@ -38,7 +38,9 @@ class FragmentProfil : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) { //gorunumler olusturulduğunda yapılacaklar
         super.onViewCreated(view, savedInstanceState)
-        auth= FirebaseAuth.getInstance()
+        auth= Firebase.auth
+
+        textView.text=auth.currentUser!!.email.toString()   //profil sayfasında guncel kullanici adini yazar.
         button4.setOnClickListener{
             //runBlocking { launch {
                 //delay(1000)

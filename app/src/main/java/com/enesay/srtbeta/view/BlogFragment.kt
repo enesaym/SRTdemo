@@ -107,7 +107,10 @@ class BlogFragment : Fragment() {
         binding.recyclerView.layoutManager=LinearLayoutManager(this.requireContext())
         BlogAdapter=BlogRecyclerAdapter(postArrayList)
         binding.recyclerView.adapter=BlogAdapter
-
+        //kullanicilara buton gorunmez yapar
+        if(auth.currentUser!!.email.toString()=="kullanici@gmail.com"){
+            binding.fab.isEnabled=false
+        }
         fab.setOnClickListener{                        //blog paylasım sayfasına yonlendirme navigation ile
             val fr = getParentFragmentManager().beginTransaction()  //get fragment yontemi kullanımdan kaldırıldı.
             fr.replace(com.enesay.srtbeta.R.id.flFragment, UploadFragment())

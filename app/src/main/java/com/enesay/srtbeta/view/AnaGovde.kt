@@ -1,7 +1,9 @@
 package com.enesay.srtbeta.view
 
+import android.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.fragment.app.Fragment
 import com.enesay.srtbeta.R
@@ -19,6 +21,24 @@ class AnaGovde : AppCompatActivity() {
         setUpTabBar()
 
 
+    }
+    override fun onBackPressed() {
+        AlertDialog.Builder(this).apply { setTitle("Bilgilendirme")
+            setMessage("Çıkmak istediğinize emin misiniz?")
+
+            setPositiveButton("Evet") { _, _ ->
+                // if user press yes, then finish the current activity
+                finishAffinity()
+            }
+
+            setNegativeButton("Hayır"){_, _ ->
+                // if user press no, then return the activity
+                Toast.makeText(applicationContext, "Teşekkürler",
+                    Toast.LENGTH_LONG).show()
+            }
+
+            setCancelable(true)
+        }.create().show()
     }
 
     fun setUpTabBar(){   //bottom nav bar kontrolleri

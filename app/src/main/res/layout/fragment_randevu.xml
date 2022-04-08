@@ -14,4 +14,13 @@
         android:layout_centerHorizontal="true"
         android:text="RANDEVU EKRANI" />
 
+    <CalendarView
+        android:id="@+id/calendarView"
+        android:layout_width="266dp"
+        android:layout_height="219dp"
+        android:layout_alignParentTop="true"
+
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="31dp" />
+
 </RelativeLayout>
