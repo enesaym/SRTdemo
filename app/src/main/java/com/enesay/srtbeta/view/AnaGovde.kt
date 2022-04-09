@@ -20,9 +20,9 @@ class AnaGovde : AppCompatActivity() {
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO) //dark mode engelleme
         setUpTabBar()
 
-
     }
-    override fun onBackPressed() {
+
+    /*override fun onBackPressed() {
         AlertDialog.Builder(this).apply { setTitle("Bilgilendirme")
             setMessage("Çıkmak istediğinize emin misiniz?")
 
@@ -39,7 +39,7 @@ class AnaGovde : AppCompatActivity() {
 
             setCancelable(true)
         }.create().show()
-    }
+    }*/
 
     fun setUpTabBar(){   //bottom nav bar kontrolleri
         binding.bottomNavBar.setOnItemSelectedListener {

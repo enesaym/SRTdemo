@@ -19,7 +19,6 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.enesay.srtbeta.R
-import com.enesay.srtbeta.databinding.ActivityUploadBinding
 import com.enesay.srtbeta.databinding.FragmentUploadBinding
 import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.Timestamp

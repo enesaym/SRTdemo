@@ -12,7 +12,6 @@ import androidx.navigation.Navigation
 import com.enesay.srtbeta.R
 import kotlinx.android.synthetic.main.activity_ana_govde.*
 import kotlinx.android.synthetic.main.fragment_blog.*
-
 import androidx.fragment.app.FragmentManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.enesay.srtbeta.adapter.BlogRecyclerAdapter
@@ -114,9 +113,10 @@ class BlogFragment : Fragment() {
         fab.setOnClickListener{                        //blog paylasım sayfasına yonlendirme navigation ile
             val fr = getParentFragmentManager().beginTransaction()  //get fragment yontemi kullanımdan kaldırıldı.
             fr.replace(com.enesay.srtbeta.R.id.flFragment, UploadFragment())
+            fr.addToBackStack(null)
             fr.commit()
-
         }
+
     }
 
 

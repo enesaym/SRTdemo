@@ -27,10 +27,11 @@ class MainActivity : AppCompatActivity() {
         if(currentUser!=null){       //oturum hatırlama
             val intent=Intent(this, AnaGovde::class.java)
             startActivity(intent)
-            //finish()
+            finish()
         }
 
     }
+
 
 
 
