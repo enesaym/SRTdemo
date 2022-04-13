@@ -6,9 +6,13 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.fragment.app.Fragment
+import androidx.navigation.findNavController
+import androidx.navigation.ui.setupWithNavController
 import com.enesay.srtbeta.R
 import com.enesay.srtbeta.adapter.Communication
 import com.enesay.srtbeta.databinding.ActivityAnaGovdeBinding
+import com.google.android.material.bottomnavigation.BottomNavigationItemView
+import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class AnaGovde : AppCompatActivity(){
         private lateinit var binding: ActivityAnaGovdeBinding
@@ -18,10 +22,17 @@ class AnaGovde : AppCompatActivity(){
         val view=binding.root
         setContentView(view)
 
+        val navController=findNavController(R.id.container_fragment)
+        val bottomNavigationView=findViewById<BottomNavigationView>(R.id.bottom_navigation_view)
+
+        bottomNavigationView.setupWithNavController(navController)
+
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO) //dark mode engelleme
-        setUpTabBar()
+        //setUpTabBar()
 
     }
+
+
 
     /*override fun onBackPressed() {
         AlertDialog.Builder(this).apply { setTitle("Bilgilendirme")
@@ -42,7 +53,9 @@ class AnaGovde : AppCompatActivity(){
         }.create().show()
     }*/
 
-    fun setUpTabBar(){   //bottom nav bar kontrolleri
+
+
+    /*fun setUpTabBar(){   //bottom nav bar kontrolleri
         binding.bottomNavBar.setOnItemSelectedListener {
             val firstFragment= ChatFragment()
             val secondFragment= BlogFragment()
@@ -76,7 +89,7 @@ class AnaGovde : AppCompatActivity(){
             commit()
         }
 
-
+*/
 
 
 }

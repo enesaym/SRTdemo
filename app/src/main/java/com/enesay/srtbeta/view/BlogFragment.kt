@@ -123,10 +123,13 @@ class BlogFragment : Fragment() {
             binding.fab.isEnabled=false
         }
         fab.setOnClickListener{                        //blog paylasım sayfasına yonlendirme navigation ile
-            val fr = getParentFragmentManager().beginTransaction()  //get fragment yontemi kullanımdan kaldırıldı.
+            val action=BlogFragmentDirections.actionBlogFragmentToUploadFragment()
+            Navigation.findNavController(it).navigate(action)
+
+            /*val fr = getParentFragmentManager().beginTransaction()  //get fragment yontemi kullanımdan kaldırıldı.
             fr.replace(com.enesay.srtbeta.R.id.flFragment, UploadFragment())
             fr.addToBackStack(null)
-            fr.commit()
+            fr.commit()*/
         }
 
 

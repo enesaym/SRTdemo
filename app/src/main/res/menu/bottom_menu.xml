@@ -2,22 +2,22 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
-        android:id="@+id/message"
+        android:id="@+id/chatFragment"
         android:icon="@drawable/icon_message"
         android:title="Mesajlar"
         app:cnb_iconColor="#2196F3"/>
     <item
-        android:id="@+id/home"
+        android:id="@+id/blogFragment"
         android:icon="@drawable/ic_baseline_home_24"
         android:title="Blog"
         app:cnb_iconColor="#FF0000"/>
     <item
-        android:id="@+id/calender"
+        android:id="@+id/randevuFragment"
         android:icon="@drawable/ic_baseline_perm_contact_calendar_24"
         android:title="Randevular"
         app:cnb_iconColor="#1AFF00"/>
     <item
-        android:id="@+id/user"
+        android:id="@+id/fragmentProfil"
         android:icon="@drawable/ic_baseline_person_outline_24"
         android:title="Hesap"
         app:cnb_iconColor="#0310FF" />

@@ -58,25 +58,11 @@ class BlogRecyclerAdapter(private val postlist:ArrayList<Post>) : RecyclerView.A
 
         holder.itemView.setOnClickListener{
             
-            val action=BlogFragmentDirections.actionBlogFragmentToBlogSayfaFragment(postlist.get(position).comment.toString())
+            val action=BlogFragmentDirections.actionBlogFragmentToBlogSayfaFragment(postlist.get(position).headerComment,postlist.get(position).comment)
             Navigation.findNavController(it).navigate(action)
 
-            /*db= Firebase.firestore
-            val postMap = hashMapOf<String,Any>()
-            postMap.put("head", postlist.get(position).headerComment)
-            db.collection("tıklanan").add(postMap).addOnSuccessListener {    //veri tabanına ekler
 
 
-
-            }.addOnFailureListener{
-
-            }*/
-
-                //listener(holder.binding.recyclerHead.text.toString())
-              /* val bundle = Bundle()
-                bundle.putString("header", postlist.get(position).comment)
-
-                BlogSayfaFragment().arguments = bundle*/
 
 
 
@@ -90,14 +76,6 @@ class BlogRecyclerAdapter(private val postlist:ArrayList<Post>) : RecyclerView.A
         }
 
 
-        /*holder.binding.recyclerImageView.setOnClickListener{
-
-                /*val bundle = Bundle()
-                bundle.putInt("Position", position)
-                bundle.putString("Header", holder.binding.recyclerEmailText.text.toString())
-                val storeDetails =BlogSayfaFragment()
-                storeDetails.setArguments(bundle)*/
-        }*/
 
 
 

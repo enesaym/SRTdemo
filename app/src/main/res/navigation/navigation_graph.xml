@@ -34,5 +34,27 @@
         <argument
             android:name="header"
             app:argType="string" />
+        <argument
+            android:name="comment"
+            app:argType="string" />
     </fragment>
+    <fragment
+        android:id="@+id/chatFragment"
+        android:name="com.enesay.srtbeta.view.ChatFragment"
+        android:label="fragment_chat"
+        tools:layout="@layout/fragment_chat" >
+        <action
+            android:id="@+id/action_chatFragment_to_blogFragment"
+            app:destination="@id/blogFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragmentProfil"
+        android:name="com.enesay.srtbeta.view.FragmentProfil"
+        android:label="fragment_profil"
+        tools:layout="@layout/fragment_profil" />
+    <fragment
+        android:id="@+id/randevuFragment"
+        android:name="com.enesay.srtbeta.view.RandevuFragment"
+        android:label="fragment_randevu"
+        tools:layout="@layout/fragment_randevu" />
 </navigation>

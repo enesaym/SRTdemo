@@ -18,6 +18,7 @@ import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import androidx.navigation.Navigation
 import com.enesay.srtbeta.R
 import com.enesay.srtbeta.databinding.FragmentUploadBinding
 import com.google.android.material.snackbar.Snackbar
@@ -93,9 +94,12 @@ class UploadFragment : Fragment() {
 
                                 Toast.makeText(this.requireContext(),"GÖNDERİ PAYLAŞILDI",Toast.LENGTH_SHORT).show()
                                 //blog ekranına intent yapar
-                                val fr = getParentFragmentManager().beginTransaction()  //get fragment yontemi kullanımdan kaldırıldı.
+                                /*val action=UploadFragmentDirections.actionUploadFragmentToBlogFragment()
+                                Navigation.findNavController(it).navigate(action)*/
+
+                                /*val fr = getParentFragmentManager().beginTransaction()  //get fragment yontemi kullanımdan kaldırıldı.
                                 fr.replace(com.enesay.srtbeta.R.id.flFragment, BlogFragment())
-                                fr.commit()
+                                fr.commit()*/
 
                             }.addOnFailureListener{
                                 Toast.makeText(this.requireContext(),it.localizedMessage,Toast.LENGTH_LONG).show()
