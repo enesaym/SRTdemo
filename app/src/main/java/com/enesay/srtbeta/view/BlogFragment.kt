@@ -15,9 +15,13 @@ import kotlinx.android.synthetic.main.fragment_blog.*
 import androidx.fragment.app.FragmentManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.enesay.srtbeta.adapter.BlogRecyclerAdapter
+import com.enesay.srtbeta.adapter.Communication
+import androidx.navigation.Navigation.findNavController
+import androidx.navigation.ui.navigateUp
 import com.enesay.srtbeta.databinding.FragmentBlogBinding
 import com.enesay.srtbeta.databinding.FragmentUploadBinding
 import com.enesay.srtbeta.model.Post
+import com.google.android.gms.common.api.internal.ListenerHolder
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.FirebaseFirestore
@@ -25,18 +29,23 @@ import com.google.firebase.firestore.Query
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.FirebaseStorage
+import kotlinx.android.synthetic.main.fragment_blog_sayfa.*
+import kotlinx.android.synthetic.main.recycler_row.*
+import kotlinx.android.synthetic.main.recycler_row.view.*
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
 
 
 class BlogFragment : Fragment() {
+
     private lateinit var binding: FragmentBlogBinding
     private lateinit var db : FirebaseFirestore
     private lateinit var auth : FirebaseAuth
     private lateinit var storage: FirebaseStorage
     private lateinit var postArrayList: ArrayList<Post>
     private lateinit var BlogAdapter: BlogRecyclerAdapter
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -100,7 +109,10 @@ class BlogFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
+        val frag02=RandevuFragment()
+        val bundle=Bundle()
+        bundle.putString("header","deneme")
+        frag02.arguments=bundle
         getData()
 
         binding.recyclerView.layoutManager=LinearLayoutManager(this.requireContext())
@@ -117,7 +129,13 @@ class BlogFragment : Fragment() {
             fr.commit()
         }
 
+
+
+
+
+
     }
+
 
 
 

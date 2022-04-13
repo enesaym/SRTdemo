@@ -13,6 +13,9 @@
         <action
             android:id="@+id/action_blogFragment_to_uploadFragment"
             app:destination="@id/uploadFragment" />
+        <action
+            android:id="@+id/action_blogFragment_to_blogSayfaFragment"
+            app:destination="@id/blogSayfaFragment" />
     </fragment>
     <fragment
         android:id="@+id/uploadFragment"
@@ -22,5 +25,14 @@
         <action
             android:id="@+id/action_uploadFragment_to_blogFragment"
             app:destination="@id/blogFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/blogSayfaFragment"
+        android:name="com.enesay.srtbeta.view.BlogSayfaFragment"
+        android:label="fragment_blog_sayfa"
+        tools:layout="@layout/fragment_blog_sayfa" >
+        <argument
+            android:name="header"
+            app:argType="string" />
     </fragment>
 </navigation>

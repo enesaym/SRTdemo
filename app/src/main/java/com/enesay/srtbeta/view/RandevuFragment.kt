@@ -6,6 +6,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.enesay.srtbeta.R
+import kotlinx.android.synthetic.main.fragment_blog_sayfa.*
+import kotlinx.android.synthetic.main.fragment_randevu.*
 
 
 class RandevuFragment : Fragment() {

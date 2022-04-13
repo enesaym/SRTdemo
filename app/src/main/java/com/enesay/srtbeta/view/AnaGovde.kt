@@ -7,9 +7,10 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.fragment.app.Fragment
 import com.enesay.srtbeta.R
+import com.enesay.srtbeta.adapter.Communication
 import com.enesay.srtbeta.databinding.ActivityAnaGovdeBinding
 
-class AnaGovde : AppCompatActivity() {
+class AnaGovde : AppCompatActivity(){
         private lateinit var binding: ActivityAnaGovdeBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -74,6 +75,7 @@ class AnaGovde : AppCompatActivity() {
             replace(R.id.flFragment,fragment)
             commit()
         }
+
 
 
 

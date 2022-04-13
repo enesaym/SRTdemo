@@ -15,19 +15,29 @@ import android.view.View
 import android.view.ViewManager
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.*
+import androidx.navigation.Navigation.findNavController
+import androidx.navigation.ui.navigateUp
 import com.google.android.gms.common.api.internal.LifecycleCallback.getFragment
 
 
 import androidx.navigation.fragment.FragmentNavigator
 import android.os.Bundle
-
-
-
+import android.widget.ImageView
+import android.widget.TextView
+import android.widget.Toast
+import androidx.navigation.Navigation
+import com.enesay.srtbeta.view.BlogFragment
+import com.enesay.srtbeta.view.BlogFragmentDirections
+import com.google.firebase.Timestamp
+import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
+import kotlinx.android.synthetic.main.recycler_row.view.*
 
 
 class BlogRecyclerAdapter(private val postlist:ArrayList<Post>) : RecyclerView.Adapter<BlogRecyclerAdapter.PostHolder>() {
 
-
+    private lateinit var db:FirebaseFirestore
 
     class PostHolder(val binding: RecyclerRowBinding) : RecyclerView.ViewHolder(binding.root){
 
@@ -36,30 +46,66 @@ class BlogRecyclerAdapter(private val postlist:ArrayList<Post>) : RecyclerView.A
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PostHolder {
             val binding=RecyclerRowBinding.inflate(LayoutInflater.from(parent.context),parent,false)
         return PostHolder(binding)
+
     }
 
     override fun onBindViewHolder(holder: PostHolder, position: Int) {
         holder.binding.recyclerEmailText.text=postlist.get(position).email
+
         holder.binding.recyclerHead.text=postlist.get(position).headerComment
         holder.binding.recyclerComment.text=postlist.get(position).comment
         Picasso.get().load(postlist.get(position).downloadUrl).into(holder.binding.recyclerImageView)
-        holder.binding.recyclerImageView.setOnClickListener{
-            val fm = (holder.itemView.context as FragmentActivity).supportFragmentManager.beginTransaction()
-             //fragment ile fragment arasi gecis
+
+        holder.itemView.setOnClickListener{
+            
+            val action=BlogFragmentDirections.actionBlogFragmentToBlogSayfaFragment(postlist.get(position).comment.toString())
+            Navigation.findNavController(it).navigate(action)
+
+            /*db= Firebase.firestore
+            val postMap = hashMapOf<String,Any>()
+            postMap.put("head", postlist.get(position).headerComment)
+            db.collection("tıklanan").add(postMap).addOnSuccessListener {    //veri tabanına ekler
+
+
+
+            }.addOnFailureListener{
+
+            }*/
+
+                //listener(holder.binding.recyclerHead.text.toString())
+              /* val bundle = Bundle()
+                bundle.putString("header", postlist.get(position).comment)
+
+                BlogSayfaFragment().arguments = bundle*/
+
+
+
+            /*val fm = (holder.itemView.context as FragmentActivity).supportFragmentManager.beginTransaction()
+            //fragment ile fragment arasi gecis
             fm.replace(com.enesay.srtbeta.R.id.flFragment,BlogSayfaFragment())
             fm.addToBackStack(null)
-            fm.commit()
-            //fragment veri aktarimi
-
-
-
+            fm.commit()*/
+            //fragment send data
 
         }
-    }
 
+
+        /*holder.binding.recyclerImageView.setOnClickListener{
+
+                /*val bundle = Bundle()
+                bundle.putInt("Position", position)
+                bundle.putString("Header", holder.binding.recyclerEmailText.text.toString())
+                val storeDetails =BlogSayfaFragment()
+                storeDetails.setArguments(bundle)*/
+        }*/
+
+
+
+    }
 
     override fun getItemCount(): Int {
         return postlist.size
     }
+
 
 }
