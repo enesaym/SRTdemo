@@ -19,7 +19,9 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.navigation.Navigation
+
 import com.enesay.srtbeta.R
+import androidx.navigation.fragment.FragmentNavigator
 import com.enesay.srtbeta.databinding.FragmentUploadBinding
 import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.Timestamp
@@ -90,12 +92,12 @@ class UploadFragment : Fragment() {
                             postMap.put("comment",binding.editTextTextMultiLine.text.toString())
                             postMap.put("date", Timestamp.now())
 
-                            db.collection("Postlar").add(postMap).addOnSuccessListener {    //veri tabanına ekler
+                            db.collection("Postlar").add(postMap).addOnSuccessListener {   //veri tabanına ekler
 
                                 Toast.makeText(this.requireContext(),"GÖNDERİ PAYLAŞILDI",Toast.LENGTH_SHORT).show()
                                 //blog ekranına intent yapar
-                                /*val action=UploadFragmentDirections.actionUploadFragmentToBlogFragment()
-                                Navigation.findNavController(it).navigate(action)*/
+                                val action=UploadFragmentDirections.actionUploadFragmentToBlogFragment()
+                                Navigation.findNavController(this.requireView()).navigate(action)
 
                                 /*val fr = getParentFragmentManager().beginTransaction()  //get fragment yontemi kullanımdan kaldırıldı.
                                 fr.replace(com.enesay.srtbeta.R.id.flFragment, BlogFragment())

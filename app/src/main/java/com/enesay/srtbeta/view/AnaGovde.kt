@@ -1,17 +1,12 @@
 package com.enesay.srtbeta.view
 
-import android.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatDelegate
-import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.enesay.srtbeta.R
-import com.enesay.srtbeta.adapter.Communication
 import com.enesay.srtbeta.databinding.ActivityAnaGovdeBinding
-import com.google.android.material.bottomnavigation.BottomNavigationItemView
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class AnaGovde : AppCompatActivity(){

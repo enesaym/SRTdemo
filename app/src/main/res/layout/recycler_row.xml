@@ -37,7 +37,9 @@
             android:id="@+id/recyclerHead"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Baslık"></TextView>
+            android:text="Baslık"
+            android:textColor="#000000"
+            android:textStyle="bold"></TextView>
 
         <TextView
             android:id="@+id/recyclerComment"

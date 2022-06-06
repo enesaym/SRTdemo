@@ -58,20 +58,8 @@ class BlogRecyclerAdapter(private val postlist:ArrayList<Post>) : RecyclerView.A
 
         holder.itemView.setOnClickListener{
             
-            val action=BlogFragmentDirections.actionBlogFragmentToBlogSayfaFragment(postlist.get(position).headerComment,postlist.get(position).comment)
+            val action=BlogFragmentDirections.actionBlogFragmentToBlogSayfaFragment(postlist.get(position).headerComment,postlist.get(position).comment,postlist.get(position).downloadUrl)
             Navigation.findNavController(it).navigate(action)
-
-
-
-
-
-
-            /*val fm = (holder.itemView.context as FragmentActivity).supportFragmentManager.beginTransaction()
-            //fragment ile fragment arasi gecis
-            fm.replace(com.enesay.srtbeta.R.id.flFragment,BlogSayfaFragment())
-            fm.addToBackStack(null)
-            fm.commit()*/
-            //fragment send data
 
         }
 

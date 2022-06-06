@@ -1,27 +1,18 @@
 package com.enesay.srtbeta.view
 
 import android.os.Bundle
-import android.text.TextUtils.replace
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.RelativeLayout
 import android.widget.Toast
+import androidx.core.view.isVisible
 import androidx.navigation.Navigation
-import com.enesay.srtbeta.R
-import kotlinx.android.synthetic.main.activity_ana_govde.*
 import kotlinx.android.synthetic.main.fragment_blog.*
-import androidx.fragment.app.FragmentManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.enesay.srtbeta.adapter.BlogRecyclerAdapter
-import com.enesay.srtbeta.adapter.Communication
-import androidx.navigation.Navigation.findNavController
-import androidx.navigation.ui.navigateUp
 import com.enesay.srtbeta.databinding.FragmentBlogBinding
-import com.enesay.srtbeta.databinding.FragmentUploadBinding
 import com.enesay.srtbeta.model.Post
-import com.google.android.gms.common.api.internal.ListenerHolder
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.FirebaseFirestore
@@ -29,12 +20,6 @@ import com.google.firebase.firestore.Query
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.FirebaseStorage
-import kotlinx.android.synthetic.main.fragment_blog_sayfa.*
-import kotlinx.android.synthetic.main.recycler_row.*
-import kotlinx.android.synthetic.main.recycler_row.view.*
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.runBlocking
 
 
 class BlogFragment : Fragment() {
@@ -109,18 +94,16 @@ class BlogFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val frag02=RandevuFragment()
-        val bundle=Bundle()
-        bundle.putString("header","deneme")
-        frag02.arguments=bundle
+
         getData()
 
         binding.recyclerView.layoutManager=LinearLayoutManager(this.requireContext())
         BlogAdapter=BlogRecyclerAdapter(postArrayList)
         binding.recyclerView.adapter=BlogAdapter
+
         //kullanicilara buton gorunmez yapar
-        if(auth.currentUser!!.email.toString()=="kullanici@gmail.com"){
-            binding.fab.isEnabled=false
+        if(auth.currentUser!!.email.toString()!="doktor@gmail.com"){
+            binding.fab.isVisible=false
         }
         fab.setOnClickListener{                        //blog paylasım sayfasına yonlendirme navigation ile
             val action=BlogFragmentDirections.actionBlogFragmentToUploadFragment()
