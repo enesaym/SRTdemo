@@ -18,6 +18,8 @@
         <entry key="..\:/Users/ENES/AndroidStudioProjects/SRTdemoClone/app/src/main/res/layout/activity_feed.xml" value="0.17028985507246377" />
         <entry key="..\:/Users/ENES/AndroidStudioProjects/SRTdemoClone/app/src/main/res/layout/activity_main.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/ENES/AndroidStudioProjects/SRTdemoClone/app/src/main/res/layout/activity_upload.xml" value="0.1539855072463768" />
+        <entry key="..\:/Users/ENES/AndroidStudioProjects/SRTdemoClone/app/src/main/res/layout/chats_row.xml" value="0.1" />
+        <entry key="..\:/Users/ENES/AndroidStudioProjects/SRTdemoClone/app/src/main/res/layout/chats_row_right.xml" value="0.1" />
         <entry key="..\:/Users/ENES/AndroidStudioProjects/SRTdemoClone/app/src/main/res/layout/fragment_blog.xml" value="0.18" />
         <entry key="..\:/Users/ENES/AndroidStudioProjects/SRTdemoClone/app/src/main/res/layout/fragment_blog_sayfa.xml" value="0.20380434782608695" />
         <entry key="..\:/Users/ENES/AndroidStudioProjects/SRTdemoClone/app/src/main/res/layout/fragment_chat.xml" value="0.22" />
@@ -26,6 +28,7 @@
         <entry key="..\:/Users/ENES/AndroidStudioProjects/SRTdemoClone/app/src/main/res/layout/fragment_profil.xml" value="0.22" />
         <entry key="..\:/Users/ENES/AndroidStudioProjects/SRTdemoClone/app/src/main/res/layout/fragment_randevu.xml" value="0.25" />
         <entry key="..\:/Users/ENES/AndroidStudioProjects/SRTdemoClone/app/src/main/res/layout/fragment_upload.xml" value="0.22" />
+        <entry key="..\:/Users/ENES/AndroidStudioProjects/SRTdemoClone/app/src/main/res/layout/fragment_video_call_ekrani.xml" value="0.2" />
         <entry key="..\:/Users/ENES/AndroidStudioProjects/SRTdemoClone/app/src/main/res/layout/recycler_chat_row.xml" value="0.25" />
         <entry key="..\:/Users/ENES/AndroidStudioProjects/SRTdemoClone/app/src/main/res/layout/recycler_row.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/ENES/AndroidStudioProjects/SRTdemoClone/app/src/main/res/menu/bottom_menu.xml" value="0.25" />

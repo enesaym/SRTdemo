@@ -12,6 +12,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 class AnaGovde : AppCompatActivity(){
         private lateinit var binding: ActivityAnaGovdeBinding
     override fun onCreate(savedInstanceState: Bundle?) {
+
         super.onCreate(savedInstanceState)
         binding=ActivityAnaGovdeBinding.inflate(layoutInflater)
         val view=binding.root

@@ -33,7 +33,7 @@ class ChatFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         db=Firebase.firestore
-        userArrayList=ArrayList<Users>()
+        userArrayList=ArrayList<Users>() //bu liste recycler view içerisine gonderilir
 
 
 
@@ -56,14 +56,13 @@ class ChatFragment : Fragment() {
 
                             //veri cekme
                             val ad=document.get("ad") as String
-                            //val userEmail=document.get("email") as String
+                            val userEmail=document.get("email") as String
                             val soyad=document.get("soyad") as String
                             //val downloadUrl=document.get("downloadUrl") as String
                             val unvan=document.get("ünvan") as String
 
-                            val user= Users(ad,soyad,unvan)
+                            val user= Users(ad,soyad,unvan,userEmail)
                             userArrayList.add(user)
-                            println(user.isim)
 
                         }
                         UsersAdapter.notifyDataSetChanged()
@@ -77,6 +76,7 @@ class ChatFragment : Fragment() {
 
         }  //value dokumanları verir, error hataları verir.
     }
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -92,7 +92,7 @@ class ChatFragment : Fragment() {
         UserAl()
 
         binding.recylerViewUsers.layoutManager= LinearLayoutManager(this.requireContext())
-        UsersAdapter= UserRecyclerAdapter(userArrayList)
+        UsersAdapter= UserRecyclerAdapter(userArrayList) //listeyi recyclerviewe gonderir
         binding.recylerViewUsers.adapter=UsersAdapter
 
     }

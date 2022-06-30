@@ -10,6 +10,7 @@ import com.enesay.srtbeta.model.Users
 import com.enesay.srtbeta.view.BlogFragmentDirections
 import com.enesay.srtbeta.view.ChatFragmentDirections
 import com.google.firebase.firestore.auth.User
+import org.jitsi.meet.sdk.JitsiMeet
 
 class UserRecyclerAdapter(private val userList: ArrayList<Users>) : RecyclerView.Adapter<UserRecyclerAdapter.UserHolder>(){
 
@@ -27,11 +28,16 @@ class UserRecyclerAdapter(private val userList: ArrayList<Users>) : RecyclerView
         val unvan=userList.get(position).unvan
         val isim=userList.get(position).isim
         val soyisim=userList.get(position).soyad
-        holder.binding.textView6.text=unvan+" "+isim+" "+soyisim
+        val email=userList.get(position).email
+        holder.binding.textView6.text=email
         holder.binding.imageView4.setOnClickListener{
-            val action= ChatFragmentDirections.actionChatFragmentToMesajFragment()
+            val action= ChatFragmentDirections.actionChatFragmentToMesajFragment(email)
             Navigation.findNavController(it).navigate(action)
-
+            println(email)
+        }
+        holder.binding.imageView5.setOnClickListener{
+            val action=ChatFragmentDirections.actionChatFragmentToVideoCallEkrani()
+            Navigation.findNavController(it).navigate(action)
         }
     }
 

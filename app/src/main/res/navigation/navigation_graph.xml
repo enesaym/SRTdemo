@@ -48,6 +48,9 @@
         <action
             android:id="@+id/action_chatFragment_to_mesajFragment"
             app:destination="@id/mesajFragment" />
+        <action
+            android:id="@+id/action_chatFragment_to_videoCallEkrani"
+            app:destination="@id/videoCallEkrani" />
     </fragment>
     <fragment
         android:id="@+id/fragmentProfil"
@@ -63,5 +66,14 @@
         android:id="@+id/mesajFragment"
         android:name="com.enesay.srtbeta.view.MesajFragment"
         android:label="fragment_mesaj"
-        tools:layout="@layout/fragment_mesaj" />
+        tools:layout="@layout/fragment_mesaj" >
+        <argument
+            android:name="email"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/videoCallEkrani"
+        android:name="com.enesay.srtbeta.view.videoCallEkrani"
+        android:label="fragment_video_call_ekrani"
+        tools:layout="@layout/fragment_video_call_ekrani" />
 </navigation>
