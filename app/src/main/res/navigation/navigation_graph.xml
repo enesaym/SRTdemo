@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation_graph"
+    app:startDestination="@id/blogFragment">
+
+    <fragment
+        android:id="@+id/blogFragment"
+        android:name="com.enesay.srtbeta.view.BlogFragment"
+        android:label="fragment_blog"
+        tools:layout="@layout/fragment_blog" >
+        <action
+            android:id="@+id/action_blogFragment_to_uploadFragment"
+            app:destination="@id/uploadFragment" />
+        <action
+            android:id="@+id/action_blogFragment_to_blogSayfaFragment"
+            app:destination="@id/blogSayfaFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/uploadFragment"
+        android:name="com.enesay.srtbeta.view.UploadFragment"
+        android:label="fragment_upload"
+        tools:layout="@layout/fragment_upload" >
+        <action
+            android:id="@+id/action_uploadFragment_to_blogFragment"
+            app:destination="@id/blogFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/blogSayfaFragment"
+        android:name="com.enesay.srtbeta.view.BlogSayfaFragment"
+        android:label="fragment_blog_sayfa"
+        tools:layout="@layout/fragment_blog_sayfa" >
+        <argument
+            android:name="header"
+            app:argType="string" />
+        <argument
+            android:name="comment"
+            app:argType="string" />
+        <argument android:name="photo"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/chatFragment"
+        android:name="com.enesay.srtbeta.view.ChatFragment"
+        android:label="fragment_chat"
+        tools:layout="@layout/fragment_chat" >
+        <action
+            android:id="@+id/action_chatFragment_to_mesajFragment"
+            app:destination="@id/mesajFragment" />
+        <action
+            android:id="@+id/action_chatFragment_to_videoCallEkrani"
+            app:destination="@id/videoCallEkrani" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragmentProfil"
+        android:name="com.enesay.srtbeta.view.FragmentProfil"
+        android:label="fragment_profil"
+        tools:layout="@layout/fragment_profil" />
+    <fragment
+        android:id="@+id/randevuFragment"
+        android:name="com.enesay.srtbeta.view.RandevuFragment"
+        android:label="fragment_randevu"
+        tools:layout="@layout/fragment_randevu" />
+    <fragment
+        android:id="@+id/mesajFragment"
+        android:name="com.enesay.srtbeta.view.MesajFragment"
+        android:label="fragment_mesaj"
+        tools:layout="@layout/fragment_mesaj" >
+        <argument
+            android:name="email"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/videoCallEkrani"
+        android:name="com.enesay.srtbeta.view.videoCallEkrani"
+        android:label="fragment_video_call_ekrani"
+        tools:layout="@layout/fragment_video_call_ekrani" />
+</navigation>

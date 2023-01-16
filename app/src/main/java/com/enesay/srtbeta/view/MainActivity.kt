@@ -1,5 +1,6 @@
-package com.enesay.srtbeta
+package com.enesay.srtbeta.view
 
+import android.app.AlertDialog
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -12,8 +13,10 @@ import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
+
     private lateinit var binding: ActivityMainBinding
     private lateinit var auth: FirebaseAuth
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding= ActivityMainBinding.inflate(layoutInflater)
@@ -23,14 +26,18 @@ class MainActivity : AppCompatActivity() {
         auth= Firebase.auth //initialize etme
 
         val currentUser=auth.currentUser
-        if(currentUser!=null){
-            val intent=Intent(this,FeedActivity::class.java)
+        if(currentUser!=null){       //oturum hatırlama
+            val intent=Intent(this, AnaGovde::class.java)
             startActivity(intent)
             finish()
-
         }
 
     }
+
+
+
+
+    //Giris yapma
     fun signInClicked(view: View){
 
 
@@ -41,7 +48,7 @@ class MainActivity : AppCompatActivity() {
             Toast.makeText(this,"Kullanıcı adı veya sifre alanı bos gecilemez !", Toast.LENGTH_LONG).show()
         }else{
             auth.signInWithEmailAndPassword(email,password).addOnSuccessListener{
-                val intent= Intent(this,FeedActivity::class.java)
+                val intent= Intent(this, AnaGovde::class.java)
                 startActivity(intent)
                 finish()
             }.addOnFailureListener{
@@ -50,10 +57,9 @@ class MainActivity : AppCompatActivity() {
         }
 
     }
+    //kullanıcı kayıt
     fun signUpClicked(view: View){
-        /////////////////////////
 
-        ///////////////////////////////////
         val email=binding.emailText.text.toString()
         val password= binding.passwordText.text.toString()
 
@@ -62,7 +68,7 @@ class MainActivity : AppCompatActivity() {
         }else{
             auth.createUserWithEmailAndPassword(email,password).addOnSuccessListener {
                 //basarılı olursa cagrılır
-                val intent= Intent(this@MainActivity,FeedActivity::class.java)  //diger sayfaya gecer
+                val intent= Intent(this@MainActivity, AnaGovde::class.java)  //diger sayfaya gecer
                 startActivity(intent)
                 finish() //ilk aktiviteyi sonlandırır.
 
