@@ -7,4 +7,5 @@ SRT mobil projesi ile psikolojik rahatsızlığı bulunan hastaların, online te
 
 Uzman doktorlar tarafından kullanılacak blog paylaşım sayfası 
 
+![Afdfdsız](https://user-images.githubusercontent.com/89969736/212724626-b2e5ce31-6038-4888-b642-0c34373d9bc2.png)
 ![Adfdsız](https://user-images.githubusercontent.com/89969736/212722013-4c87e270-9180-4f9c-bb97-d8a12e198e0b.png)
