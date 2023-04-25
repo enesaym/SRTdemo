@@ -15,3 +15,5 @@ Kullanılan teknolojiler :
 -Jetpack : Fragment Navigation and data transfer
 -Firebase : Firestore, Firebase database
 -Jiitsu meet video calling 
+-Chip navigation bar
+-Picasso for blog page
