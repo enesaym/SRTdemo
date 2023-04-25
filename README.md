@@ -4,7 +4,7 @@ SRT mobil projesi ile psikolojik destek almak isteyen kişilerin, online terapi 
 
 Kullanılan teknolojiler :
 
--Jetpack : Fragment Navigation and data transfer /n
+-Jetpack : Fragment Navigation and data transfer < br >
 -Firebase : Firestore, Firebase database 
 -Jiitsu meet video calling 
 -Chip navigation bar
